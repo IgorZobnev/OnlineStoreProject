@@ -1,0 +1,2 @@
+# OnlineStoreProject
+Angular learning project
