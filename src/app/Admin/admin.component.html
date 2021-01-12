@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col bg-danger text-white">
+            <a class="navbar-brand text-white">Online Store Admin</a>
+        </div>
+        <div class="summary float-right bg-danger">
+            <button class="btn btn-block btn-outline-light" (click)="logout()">
+                Logout
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 bg-light p-2">
+            <button class="btn btn-block btn-outline-info"
+                routerLink="/admin/main/products" routerLinkActive="active">
+                Products
+            </button>
+            <button class="btn btn-block btn-outline-info"
+                routerLink="/admin/main/orders" routerLinkActive="active">
+                Orders
+            </button>
+        </div>
+        <div class="col-9 bg-light p-2">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+

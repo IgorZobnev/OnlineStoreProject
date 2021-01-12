@@ -1,0 +1,15 @@
+<div class="summary float-right">
+    <small>
+        Your Cart: 
+        <span *ngIf="cart.itemCount > 0">
+            {{ cart.itemCount }} item(s)
+            {{ cart.cartPrice | currency: "RUB": "symbol-narrow": "1.2-2" }}
+        </span>
+        <span *ngIf="cart.itemCount == 0">
+            (empty)
+        </span>
+    </small>
+    <button class="btn btn-sm bg-light text-dark" (click)="goToCart()">
+        <i class="fa fa-shopping-cart"></i>
+    </button>
+</div>
