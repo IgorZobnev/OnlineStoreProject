@@ -6,22 +6,19 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class OrderRepository {
     private orders: Order[] = [];
-    private loaded: boolean = false; 
-    constructor(private dataSource: RestDatasource){}
+
+    constructor(private dataSource: RestDatasource){
+        dataSource.getOrder().subscribe(data => {
+            this.orders = data;
+        });
+    }
 
     getOrders(): Order[] {
-        if (!this.loaded) {
-            return this.orders;
-        }
+        return this.orders;
     }
 
     saveOrder(order: Order): Observable<Order> {
         return this.dataSource.saveOrder(order);
-    }
-
-    loadOrders() {
-        this.loaded = true;
-        this.dataSource.getOrder().subscribe(orders => this.orders = orders);
     }
 
     updateOrder(order: Order) {

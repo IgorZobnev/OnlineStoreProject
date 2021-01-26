@@ -25,6 +25,10 @@ export class RestDatasource {
         return this.http.post<Order>(this.baseUrl + "orders", order);
     }
 
+    getOrder() : Observable<Order[]> {
+        return this.http.get<Order[]>(this.baseUrl + "orders", this.getOptions());
+    }
+
     authenticate(user : string, pass: string) : Observable<boolean> {
         return this.http.post<any>(this.baseUrl + "login", {
             name : user,
@@ -52,10 +56,6 @@ export class RestDatasource {
 
     deleteProduct(id: number) : Observable<Product> {
         return this.http.delete<Product>(`${this.baseUrl}products/${id}`, this.getOptions());
-    }
-
-    getOrder() : Observable<Order[]> {
-        return this.http.get<Order[]>(this.baseUrl + "orders", this.getOptions());
     }
 
     updateOrder(order: Order) : Observable<Order> {

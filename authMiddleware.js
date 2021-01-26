@@ -17,7 +17,8 @@ module.exports = function(req, res, next) {
             return;
     }
     else if ((((req.url.startsWith("/api/products") || req.url.startsWith("/products"))
-            || (req.url.startsWith("/api/categories") || req.url.startsWith("/categories")))
+            || (req.url.startsWith("/api/categories") || req.url.startsWith("/categories"))
+            || (req.url.startsWith("/api/orders") || req.url.startsWith("/orders")))
             && req.method != "GET")
             || ((req.url.startsWith("/api/orders") || req.url.startsWith("/orders"))
             && req.method != "POST")) {
